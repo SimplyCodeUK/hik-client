@@ -4,12 +4,9 @@
 // See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace hikUI.Models
+namespace hik_client
 {
-    public class ErrorViewModel
+    public class Connection
     {
-        public string RequestId { get; set; }
-
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }

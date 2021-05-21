@@ -4,12 +4,21 @@
 // See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace hikUI.Models
+namespace hik_client.Test
 {
-    public class ErrorViewModel
-    {
-        public string RequestId { get; set; }
+    using NUnit.Framework;
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    public class TestConnection
+    {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test]
+        public void Test1()
+        {
+            Assert.Pass();
+        }
     }
 }

@@ -1,9 +1,22 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hikUI", "hikUI\src\hikUI.csproj", "{4DF2EA14-CA85-4B5D-BAC0-F03C4D33D4C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hik-client", "hik-client\src\hik-client.csproj", "{751BCEAC-1E82-4BD4-BB92-98777D19C677}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hik-client.Test", "hik-client\test\hik-client.Test.csproj", "{5D9DEE28-2A21-4073-91F4-B7F78BA78A5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hikUI.Test", "hikUI\test\hikUI.Test.csproj", "{4AD65D0E-ED2F-478F-92A4-C9E29FE1846B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{C3705B86-2D6F-4FD5-96E1-6F3D3192B24B}"
+	ProjectSection(SolutionItems) = preProject
+		.codacy.yml = .codacy.yml
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +28,18 @@ Global
 		{4DF2EA14-CA85-4B5D-BAC0-F03C4D33D4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DF2EA14-CA85-4B5D-BAC0-F03C4D33D4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DF2EA14-CA85-4B5D-BAC0-F03C4D33D4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751BCEAC-1E82-4BD4-BB92-98777D19C677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751BCEAC-1E82-4BD4-BB92-98777D19C677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751BCEAC-1E82-4BD4-BB92-98777D19C677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751BCEAC-1E82-4BD4-BB92-98777D19C677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9DEE28-2A21-4073-91F4-B7F78BA78A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9DEE28-2A21-4073-91F4-B7F78BA78A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9DEE28-2A21-4073-91F4-B7F78BA78A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9DEE28-2A21-4073-91F4-B7F78BA78A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD65D0E-ED2F-478F-92A4-C9E29FE1846B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD65D0E-ED2F-478F-92A4-C9E29FE1846B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD65D0E-ED2F-478F-92A4-C9E29FE1846B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD65D0E-ED2F-478F-92A4-C9E29FE1846B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
