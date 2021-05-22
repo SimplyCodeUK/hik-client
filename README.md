@@ -12,6 +12,7 @@
 
 [Project Location](https://github.com/louisnayegon/hik-client)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2e8bd616de1741eda73e4d28501d48ef)](https://app.codacy.com/gh/SimplyCodeUK/hik-client?utm_source=github.com&utm_medium=referral&utm_content=SimplyCodeUK/hik-client&utm_campaign=Badge_Grade_Settings)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE.md)
 
 <a name="status"></a>
