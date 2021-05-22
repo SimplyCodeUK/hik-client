@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Product>HikUI</Product>
+    <Company>Simply Code Ltd.</Company>
+    <Product>hik-client</Product>
     <Authors>Louis Henry Nayegon</Authors>
-    <Copyright>Simply Code Ltd</Copyright>
-    <RepositoryUrl>https://github.com/louisnayegon/hik-client</RepositoryUrl>
+    <Copyright>Simply Code Ltd.</Copyright>
+    <RepositoryUrl>https://github.com/SimplyCodeUK/hik-client</RepositoryUrl>
+    <DocumentationFile>bin\$(Configuration)\net5.0\doc.xml</DocumentationFile>
     <PackageIcon>favicon.ico</PackageIcon>
   </PropertyGroup>
 
@@ -22,6 +24,10 @@
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">

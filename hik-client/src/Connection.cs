@@ -6,8 +6,10 @@
 
 namespace hik_client
 {
+    /// <summary> Connection properties. </summary>
     public class Connection
     {
+        /// <summary> Constructor </summary>
         public Connection()
         {
             this.Endpoint = "";

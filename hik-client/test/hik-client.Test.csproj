@@ -3,7 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>hik_client.Test</RootNamespace>
-
+    <Company>Simply Code Ltd.</Company>
+    <Product>hik-client</Product>
+    <Authors>Louis Henry Nayegon</Authors>
+    <Copyright>Simply Code Ltd.</Copyright>
+    <RepositoryUrl>https://github.com/SimplyCodeUK/hik-client</RepositoryUrl>
+    <DocumentationFile>bin\$(Configuration)\net5.0\doc.xml</DocumentationFile>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
