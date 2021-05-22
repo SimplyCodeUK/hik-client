@@ -10,7 +10,7 @@
 
 ## Github
 
-[Project Location](https://github.com/louisnayegon/hik-client)
+[Project Location](https://github.com/SimplyCodeUK/hik-client)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE.md)
 
@@ -20,7 +20,7 @@
 
 | Build                 | Result | Tests | Coverage |
 | :----                 | :----- | :---- | :------- |
-| Codacy Quality        | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a54a5c84bf894d0b87ca6f549cbd6e7f)](https://www.codacy.com/gh/louisnayegon/hik-client/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=louisnayegon/hik-client&amp;utm_campaign=Badge_Grade) | | |
+| Codacy Quality        | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/765c4e7fa44c406185c3c911b4dea3fc)](https://www.codacy.com/gh/SimplyCodeUK/hik-client/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SimplyCodeUK/hik-client&amp;utm_campaign=Badge_Grade) | | |
 
 <a name="development-environment"></a>
 

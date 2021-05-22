@@ -2,6 +2,30 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Product>HikUI</Product>
+    <Authors>Louis Henry Nayegon</Authors>
+    <Copyright>Simply Code Ltd</Copyright>
+    <RepositoryUrl>https://github.com/louisnayegon/hik-client</RepositoryUrl>
+    <PackageIcon>favicon.ico</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\hik-client\src\hik-client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\favicon.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="yarn install" />
+  </Target>
 
 </Project>

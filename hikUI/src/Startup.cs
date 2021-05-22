@@ -1,5 +1,5 @@
-// <copyright company="Louis Henry Nayegon.">
-// Copyright (c) Louis Henry Nayegon. All rights reserved.
+// <copyright company="Simply Code Ltd.">
+// Copyright (c) Simply Code Ltd. All rights reserved.
 // Licensed under the MIT License.
 // See LICENSE file in the project root for full license information.
 // </copyright>
@@ -11,8 +11,10 @@ namespace hikUI
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary> A start up. </summary>
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         /// <summary>
@@ -25,6 +27,7 @@ namespace hikUI
             Configuration = configuration;
         }
 
+        /// <summary> Configuration.  </summary>
         public IConfiguration Configuration { get; }
 
         /// <summary> This method gets called by the runtime. Use this method to add services to the container. </summary>
