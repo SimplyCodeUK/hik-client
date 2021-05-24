@@ -22,7 +22,7 @@
 | :----                 | :----- | :---- | :------- |
 | Codacy Quality        | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/765c4e7fa44c406185c3c911b4dea3fc)](https://www.codacy.com/gh/SimplyCodeUK/hik-client/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SimplyCodeUK/hik-client&amp;utm_campaign=Badge_Grade) | | |
 | Code Climate Quality  | [![Code Climate Quality](https://api.codeclimate.com/v1/badges/6c5cbf24a2692a611f39/maintainability)](https://codeclimate.com/github/SimplyCodeUK/hik-client) | | [![Test Coverage](https://api.codeclimate.com/v1/badges/6c5cbf24a2692a611f39/test_coverage)](https://codeclimate.com/github/SimplyCodeUK/hik-client/test_coverage) |
-| Sonarcloud Status     | [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=SimplyCodeUK_hik-project&metric=alert_status)](https://sonarcloud.io/dashboard?id=SimplyCodeUK_hik-project) | | ![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SimplyCodeUK_hik-project&metric=coverage) |
+| Sonarcloud Status     | [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=SimplyCodeUK_hik-client&metric=alert_status)](https://sonarcloud.io/dashboard?id=SimplyCodeUK_hik-client) | | ![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SimplyCodeUK_hik-client&metric=coverage) |
 
 <a name="development-environment"></a>
 
