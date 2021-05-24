@@ -37,6 +37,7 @@
   - Extensions
     - StyleCop
     - Markdown Editor
+- [Nuget Version 5.9.1](https://www.nuget.org/)
 - [Powershell Version 7.1.3](https://docs.microsoft.com/en-us/powershell/)
 - [VirtualBox Version 6.1.18](https://www.virtualbox.org/)
 - [Vagrant Version 2.2.14](https://www.vagrantup.com/)
