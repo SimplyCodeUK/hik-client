@@ -11,27 +11,43 @@ namespace hikUI.Controllers
     using Microsoft.Extensions.Logging;
     using System.Diagnostics;
 
+    /// <summary> A controller for handling the Home Page. </summary>
     public class HomeController : Controller
     {
+        /// <summary> The logger. </summary>
         private readonly ILogger<HomeController> _logger;
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="HomeController" /> class.
+        /// </summary>
+        ///
+        /// <param name="logger"> The logger. </param>
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary> Handle the Index view request. </summary>
+        ///
+        /// <returns> An IActionResult. </returns>
         public IActionResult Index()
         {
             _logger.LogInformation("Index");
             return this.View("Index");
         }
 
+        /// <summary> Handle the Privacy view request. </summary>
+        ///
+        /// <returns> An IActionResult. </returns>
         public IActionResult Privacy()
         {
             _logger.LogInformation("Privacy");
             return this.View("Privacy");
         }
 
+        /// <summary> Handle exceptions. </summary>
+        ///
+        /// <returns> An IActionResult. </returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

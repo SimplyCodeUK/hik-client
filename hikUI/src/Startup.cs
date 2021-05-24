@@ -21,7 +21,7 @@ namespace hikUI
         /// Initialises a new instance of the <see cref="Startup" /> class.
         /// </summary>
         ///
-        /// <param name="loggerFactory"> Logger factory. </param>
+        /// <param name="configuration"> Configuration. </param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
