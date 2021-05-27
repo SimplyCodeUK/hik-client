@@ -6,6 +6,8 @@
 
 namespace hik_client
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary> Connection properties. </summary>
     public class Connection
     {
@@ -20,16 +22,20 @@ namespace hik_client
         /// <summary> Gets or sets the Connection endpoint.</summary>
         ///
         /// <value> The Connection endpoint.</value>
+        [Display(Name = "Endpoint", Prompt = "Enter Endpoint")]
         public string Endpoint { get; set; }
 
         /// <summary> Gets or sets the Connection user name.</summary>
         ///
         /// <value> The Connection user name.</value>
+        [Display(Name = "Username", Prompt = "Enter Username")]
         public string Username { get; set; }
 
         /// <summary> Gets or sets the Connection password.</summary>
         ///
         /// <value> The Connection password.</value>
+        [Display(Name = "Password", Prompt = "Enter Password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

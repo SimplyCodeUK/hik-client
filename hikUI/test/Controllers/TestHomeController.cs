@@ -7,12 +7,14 @@
 namespace hikUI.Test
 {
     using NUnit.Framework;
-    using hikUI.Controllers;
     using Moq;
     using Microsoft.Extensions.Logging;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using hikUI.Models;
+    using Microsoft.Extensions.Options;
+    using hik_client;
+    using hikUI.Controllers;
 
     /// <summary> (Unit Test Fixture) a controller for handling test materials. </summary>
     public class TestHomeController
@@ -36,6 +38,18 @@ namespace hikUI.Test
 
             ViewResult viewResult = (ViewResult)result;
             Assert.AreEqual("Index", viewResult.ViewName);
+            Assert.IsNull(viewResult.ViewData.Model);
+        }
+
+        /// <summary> (Unit Test Method) Connect action. </summary>
+        [Test]
+        public void Connect()
+        {
+            var result = this.controller.Connect();
+            Assert.IsInstanceOf<ViewResult>(result);
+
+            ViewResult viewResult = (ViewResult)result;
+            Assert.AreEqual("Connect", viewResult.ViewName);
             Assert.IsNull(viewResult.ViewData.Model);
         }
 
@@ -67,7 +81,7 @@ namespace hikUI.Test
         /// <summary> Setup for disconnected services. </summary>
         private void SetupDisconnected()
         {
-            this.controller = new(Mock.Of<ILogger<HomeController>>())
+            this.controller = new(Mock.Of<ILogger<HomeController>>(), Options.Create(new AppSettings()))
             {
                 ControllerContext = new()
                 {

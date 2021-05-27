@@ -6,9 +6,11 @@
 
 namespace hikUI.Controllers
 {
+    using hik_client;
     using hikUI.Models;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
     using System.Diagnostics;
 
     /// <summary> A controller for handling the Home Page. </summary>
@@ -17,14 +19,19 @@ namespace hikUI.Controllers
         /// <summary> The logger. </summary>
         private readonly ILogger<HomeController> _logger;
 
+        private static ConnectViewModel connectViewModel = null;
+
         /// <summary>
         /// Initialises a new instance of the <see cref="HomeController" /> class.
         /// </summary>
         ///
         /// <param name="logger"> The logger. </param>
-        public HomeController(ILogger<HomeController> logger)
+        /// <param name="appSettings"> The app settings. </param>
+        public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
         {
-            _logger = logger;
+            this._logger = logger;
+            if (connectViewModel == null)
+                connectViewModel = new ConnectViewModel(appSettings.Value.ServiceEndpoints.Cameras);
         }
 
         /// <summary> Handle the Index view request. </summary>
@@ -34,6 +41,15 @@ namespace hikUI.Controllers
         {
             _logger.LogInformation("Index");
             return this.View("Index");
+        }
+
+        /// <summary> Handle the Connect view request. </summary>
+        ///
+        /// <returns> An IActionResult. </returns>
+        public IActionResult Connect()
+        {
+            _logger.LogInformation("Connect");
+            return this.View("Connect", connectViewModel);
         }
 
         /// <summary> Handle the Privacy view request. </summary>

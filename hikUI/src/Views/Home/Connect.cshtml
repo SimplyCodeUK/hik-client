@@ -1,0 +1,34 @@
+@model hikUI.Models.ConnectViewModel
+@{ ViewData["Title"] = "Connect"; }
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to connect to your camera system.</p>
+<form asp-controller="Home" asp-action="Connect">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cameras.Endpoint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cameras.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cameras.Password)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.EditorFor(model => model.Cameras.Endpoint)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Cameras.Username)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Cameras.Password)
+                </td>
+        </tbody>
+    </table>
+ </form>
