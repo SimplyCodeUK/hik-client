@@ -17,6 +17,6 @@ namespace hikUI.Models
         /// <summary> Gets a flag indicating if the request id can be shown</summary>
         ///
         /// <returns> A flag indicating if the request id can be shown.</returns>
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
     }
 }

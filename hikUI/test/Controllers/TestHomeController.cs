@@ -22,6 +22,25 @@ namespace hikUI.Test
         /// <summary> The controller under test. </summary>
         private HomeController controller;
 
+        private static readonly ServiceEndpoints Endpoints = new()
+        {
+            Cameras = new Connection()
+            {
+                Endpoint = "http://localhost:8001/api/v1/",
+                Username = "username",
+                Password = "password"
+            }
+        };
+
+        /// <summary> The application settings. </summary>
+        private static readonly AppSettings AppSettings = new()
+        {
+            ServiceEndpoints = Endpoints
+        };
+
+        /// <summary> The options. </summary>
+        private static readonly IOptions<AppSettings> Options = new OptionsWrapper<AppSettings>(AppSettings);
+
         /// <summary> Setup for all unit tests here. </summary>
         [SetUp]
         public void Setup()
@@ -50,7 +69,7 @@ namespace hikUI.Test
 
             ViewResult viewResult = (ViewResult)result;
             Assert.AreEqual("Connect", viewResult.ViewName);
-            Assert.IsNull(viewResult.ViewData.Model);
+            Assert.IsInstanceOf<ConnectViewModel>(viewResult.ViewData.Model);
         }
 
         /// <summary> (Unit Test Method) Privacy action. </summary>
@@ -81,7 +100,7 @@ namespace hikUI.Test
         /// <summary> Setup for disconnected services. </summary>
         private void SetupDisconnected()
         {
-            this.controller = new(Mock.Of<ILogger<HomeController>>(), Options.Create(new AppSettings()))
+            this.controller = new(Mock.Of<ILogger<HomeController>>(), Options)
             {
                 ControllerContext = new()
                 {

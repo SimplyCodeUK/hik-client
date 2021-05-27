@@ -39,7 +39,7 @@ namespace hikUI.Controllers
         /// <returns> An IActionResult. </returns>
         public IActionResult Index()
         {
-            _logger.LogInformation("Index");
+            this._logger.LogInformation("Index");
             return this.View("Index");
         }
 
@@ -48,7 +48,7 @@ namespace hikUI.Controllers
         /// <returns> An IActionResult. </returns>
         public IActionResult Connect()
         {
-            _logger.LogInformation("Connect");
+            this._logger.LogInformation("Connect");
             return this.View("Connect", connectViewModel);
         }
 
@@ -57,7 +57,7 @@ namespace hikUI.Controllers
         /// <returns> An IActionResult. </returns>
         public IActionResult Privacy()
         {
-            _logger.LogInformation("Privacy");
+            this._logger.LogInformation("Privacy");
             return this.View("Privacy");
         }
 
@@ -67,8 +67,8 @@ namespace hikUI.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            _logger.LogInformation("Error");
-            return this.View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            this._logger.LogInformation("Error");
+            return this.View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }

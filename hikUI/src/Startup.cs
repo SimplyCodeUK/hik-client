@@ -25,7 +25,7 @@ namespace hikUI
         /// <param name="configuration"> Configuration. </param>
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         /// <summary> Configuration.  </summary>
@@ -37,7 +37,7 @@ namespace hikUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.Configure<AppSettings>(this.Configuration.GetSection("AppSettings"));
         }
 
         /// <summary> This method gets called by the runtime. Use this method to configure the HTTP request pipeline. </summary>

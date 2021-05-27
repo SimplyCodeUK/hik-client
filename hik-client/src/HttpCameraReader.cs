@@ -31,12 +31,12 @@ namespace hik_client
         /// <returns> The device information. </returns>
         public async Task<string> getDeviceInfo()
         {
-            var info = await GetAsync("ISAPI/System/deviceInfo");
+            var info = await this.GetAsync("ISAPI/System/deviceInfo");
 
             if (info == null)
             {
                 // Try fallback URL
-                info = await GetAsync("System/deviceInfo");
+                info = await this.GetAsync("System/deviceInfo");
             }
 
             if (info == null)
