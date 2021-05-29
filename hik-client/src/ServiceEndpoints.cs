@@ -13,5 +13,11 @@ namespace hik_client
         ///
         /// <value> The Cameras connection data.</value>
         public Connection Cameras { get; set; }
+
+        /// <summary> Constructor. </summary>
+        public ServiceEndpoints()
+        {
+            this.Cameras = new();
+        }
     }
 }

@@ -6,6 +6,7 @@
 
 namespace hik_client
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     /// <summary> Camera Reader Interface. </summary>
@@ -14,6 +15,6 @@ namespace hik_client
         /// <summary> Get the device information. </summary>
         ///
         /// <returns> The device information. </returns>
-        Task<string> getDeviceInfo();
+        Task<Dictionary<string, object>> GetDeviceInfo();
     }
 }

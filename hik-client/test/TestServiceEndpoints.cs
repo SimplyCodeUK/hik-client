@@ -10,25 +10,23 @@ namespace hik_client.Test
     using hik_client;
 
     /// <summary> (Unit Test Fixture) a controller for handling a connection. </summary>
-    public class TestConnection
+    public class TestServiceEndpoints
     {
-        /// <summary> The connection under test. </summary>
-        private Connection connection;
+        /// <summary> The service endpoint under test. </summary>
+        private ServiceEndpoints serviceEndpoints;
 
         /// <summary> Setup for all unit tests here. </summary>
         [SetUp]
         public void Setup()
         {
-            this.connection = new();
+            this.serviceEndpoints = new();
         }
 
         /// <summary> (Unit Test Method) Constructor. </summary>
         [Test]
         public void Constructor()
         {
-            Assert.AreEqual(this.connection.Endpoint, "");
-            Assert.AreEqual(this.connection.Username, "");
-            Assert.AreEqual(this.connection.Password, "");
+            Assert.IsNotNull(this.serviceEndpoints.Cameras);
         }
     }
 }

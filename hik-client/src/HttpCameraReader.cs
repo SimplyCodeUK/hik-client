@@ -6,7 +6,9 @@
 
 namespace hik_client
 {
+    using Newtonsoft.Json;
     using System;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
 
@@ -20,16 +22,18 @@ namespace hik_client
         private readonly HttpClient client;
 
         /// <summary> Constructor. </summary>
-        public HttpCameraReader(Connection connection)
+        /// <param name="connection"> Connection data. </param>
+        /// <param name="handler"> Http handler. </param>
+        public HttpCameraReader(Connection connection, HttpClientHandler handler)
         {
             this.connection = connection;
-            this.client = new(new HttpClientHandler());
+            this.client = new(handler);
         }
 
         /// <summary> Get the device information. </summary>
         ///
         /// <returns> The device information. </returns>
-        public async Task<string> getDeviceInfo()
+        public async Task<Dictionary<string, object>> GetDeviceInfo()
         {
             var info = await this.GetAsync("ISAPI/System/deviceInfo");
 
@@ -44,7 +48,9 @@ namespace hik_client
                 return null;
             }
 
-            return info;
+            var ret = JsonConvert.DeserializeObject<Dictionary<string, object>>(info);
+
+            return ret;
         }
 
         /// <summary> Generic asynchronous http get command. </summary>
