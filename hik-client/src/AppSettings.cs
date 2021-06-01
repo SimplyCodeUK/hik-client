@@ -6,12 +6,12 @@
 
 namespace hik_client
 {
-    /// <summary> App settings. </summary>
+    /// <summary>App settings.</summary>
     public class AppSettings
     {
-        /// <summary> Gets or sets the service endpoints. </summary>
+        /// <summary>Gets or sets the service endpoints.</summary>
         ///
-        /// <value> The service endpoints. </value>
+        /// <value>The service endpoints.</value>
         public ServiceEndpoints ServiceEndpoints { get; set; }
     }
 }

@@ -6,16 +6,31 @@
 
 namespace hik_client
 {
-    /// <summary> Camera Handler. </summary>
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    /// <summary>Camera Handler.</summary>
     public class CameraHandler
     {
-        /// <summary> The data reader </summary>
+        /// <summary>The data reader</summary>
         private readonly ICameraReader reader;
 
-        /// <summary> Constructor </summary>
+        /// <summary>
+        /// Initialises a new instance of the <see cref="CameraHandler" /> class.
+        /// </summary>
+        ///
+        /// <param name="reader">The camera reader</param>
         public CameraHandler(ICameraReader reader)
         {
             this.reader = reader;
+        }
+
+        /// <summary>Get the device information.</summary>
+        ///
+        /// <returns>The device information.</returns>
+        public Task<Dictionary<string, object>> GetDeviceInfo()
+        {
+            return this.reader.GetDeviceInfo();
         }
     }
 }

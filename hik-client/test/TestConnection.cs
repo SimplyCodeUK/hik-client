@@ -9,20 +9,20 @@ namespace hik_client.Test
     using NUnit.Framework;
     using hik_client;
 
-    /// <summary> (Unit Test Fixture) a controller for handling a connection. </summary>
+    /// <summary>(Unit Test Fixture) a controller for handling a connection.</summary>
     public class TestConnection
     {
-        /// <summary> The connection under test. </summary>
+        /// <summary>The connection under test.</summary>
         private Connection connection;
 
-        /// <summary> Setup for all unit tests here. </summary>
+        /// <summary>Setup for all unit tests here.</summary>
         [SetUp]
         public void Setup()
         {
             this.connection = new();
         }
 
-        /// <summary> (Unit Test Method) Constructor. </summary>
+        /// <summary>(Unit Test Method) Constructor.</summary>
         [Test]
         public void Constructor()
         {

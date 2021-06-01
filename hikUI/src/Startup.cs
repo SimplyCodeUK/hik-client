@@ -14,7 +14,7 @@ namespace hikUI
     using Microsoft.Extensions.Hosting;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> A start up. </summary>
+    /// <summary>A start up.</summary>
     [ExcludeFromCodeCoverage]
     public class Startup
     {
@@ -22,28 +22,28 @@ namespace hikUI
         /// Initialises a new instance of the <see cref="Startup" /> class.
         /// </summary>
         ///
-        /// <param name="configuration"> Configuration. </param>
+        /// <param name="configuration">Configuration.</param>
         public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
         }
 
-        /// <summary> Configuration.  </summary>
+        /// <summary>Configuration.</summary>
         public IConfiguration Configuration { get; }
 
-        /// <summary> This method gets called by the runtime. Use this method to add services to the container. </summary>
+        /// <summary>This method gets called by the runtime. Use this method to add services to the container.</summary>
         ///
-        /// <param name="services"> The services. </param>
+        /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
             services.Configure<AppSettings>(this.Configuration.GetSection("AppSettings"));
         }
 
-        /// <summary> This method gets called by the runtime. Use this method to configure the HTTP request pipeline. </summary>
+        /// <summary>This method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
         ///
-        /// <param name="app"> The application. </param>
-        /// <param name="env"> The environment. </param>
+        /// <param name="app">The application.</param>
+        /// <param name="env">The environment.</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

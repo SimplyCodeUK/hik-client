@@ -9,20 +9,20 @@ namespace hik_client.Test
     using NUnit.Framework;
     using hik_client;
 
-    /// <summary> (Unit Test Fixture) a controller for handling a connection. </summary>
+    /// <summary>(Unit Test Fixture) a controller for handling a connection.</summary>
     public class TestServiceEndpoints
     {
-        /// <summary> The service endpoint under test. </summary>
+        /// <summary>The service endpoint under test.</summary>
         private ServiceEndpoints serviceEndpoints;
 
-        /// <summary> Setup for all unit tests here. </summary>
+        /// <summary>Setup for all unit tests here.</summary>
         [SetUp]
         public void Setup()
         {
             this.serviceEndpoints = new();
         }
 
-        /// <summary> (Unit Test Method) Constructor. </summary>
+        /// <summary>(Unit Test Method) Constructor.</summary>
         [Test]
         public void Constructor()
         {

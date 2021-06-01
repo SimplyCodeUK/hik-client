@@ -11,13 +11,13 @@ namespace hik_client.Test
     using System.Net.Http;
     using System.Collections.Generic;
 
-    /// <summary> (Unit Test Fixture) a controller for handling a connection. </summary>
+    /// <summary>(Unit Test Fixture) a controller for handling a connection.</summary>
     public class TestHttpCameraReader
     {
-        /// <summary> The connection settings. </summary>
+        /// <summary>The connection settings.</summary>
         private Connection connection;
 
-        /// <summary> Setup for all unit tests here. </summary>
+        /// <summary>Setup for all unit tests here.</summary>
         [SetUp]
         public void Setup()
         {
@@ -27,7 +27,7 @@ namespace hik_client.Test
             };
         }
 
-        /// <summary> (Unit Test Method) Constructor. </summary>
+        /// <summary>(Unit Test Method) Constructor.</summary>
         [Test]
         public void GetDeviceInfo()
         {
@@ -44,7 +44,7 @@ namespace hik_client.Test
             Assert.AreEqual(result.Result["About"], "About");
         }
 
-        /// <summary> (Unit Test Method) Constructor. </summary>
+        /// <summary>(Unit Test Method) Get Device Info ISAPI url.</summary>
         [Test]
         public void GetDeviceInfoISAPI()
         {
@@ -61,7 +61,7 @@ namespace hik_client.Test
             Assert.AreEqual(result.Result["About"], "ISAPI About");
         }
 
-        /// <summary> (Unit Test Method) Constructor. </summary>
+        /// <summary>(Unit Test Method) Get Device Info.</summary>
         [Test]
         public void GetDeviceInfoFail()
         {

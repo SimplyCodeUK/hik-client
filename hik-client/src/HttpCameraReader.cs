@@ -12,27 +12,30 @@ namespace hik_client
     using System.Net.Http;
     using System.Threading.Tasks;
 
-    /// <summary> Http Camera Handler. </summary>
+    /// <summary>Http Camera Handler.</summary>
     public class HttpCameraReader : ICameraReader
     {
-        /// <summary> Connection parameters. </summary>
+        /// <summary>Connection parameters.</summary>
         private readonly Connection connection;
 
-        /// <summary> Http connection client. </summary>
+        /// <summary>Http connection client.</summary>
         private readonly HttpClient client;
 
-        /// <summary> Constructor. </summary>
-        /// <param name="connection"> Connection data. </param>
-        /// <param name="handler"> Http handler. </param>
+        /// <summary>
+        /// Initialises a new instance of the <see cref="HttpCameraReader" /> class.
+        /// </summary>
+        ///
+        /// <param name="connection">Connection data.</param>
+        /// <param name="handler">Http handler.</param>
         public HttpCameraReader(Connection connection, HttpClientHandler handler)
         {
             this.connection = connection;
             this.client = new(handler);
         }
 
-        /// <summary> Get the device information. </summary>
+        /// <summary>Get the device information.</summary>
         ///
-        /// <returns> The device information. </returns>
+        /// <returns>The device information.</returns>
         public async Task<Dictionary<string, object>> GetDeviceInfo()
         {
             var info = await this.GetAsync("ISAPI/System/deviceInfo");
@@ -53,11 +56,11 @@ namespace hik_client
             return ret;
         }
 
-        /// <summary> Generic asynchronous http get command. </summary>
+        /// <summary>Generic asynchronous http get command.</summary>
         ///
-        /// <param name="resource"> Resource endpoint. </param>
+        /// <param name="resource">Resource endpoint.</param>
         ///
-        /// <returns> null if the request failed or a string value of the body of the http response. </returns>
+        /// <returns>null if the request failed or a string value of the body of the http response.</returns>
         private async Task<string> GetAsync(string resource)
         {
             try

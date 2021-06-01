@@ -13,20 +13,21 @@ namespace hikUI.Controllers
     using Microsoft.Extensions.Options;
     using System.Diagnostics;
 
-    /// <summary> A controller for handling the Home Page. </summary>
+    /// <summary>A controller for handling the Home Page.</summary>
     public class HomeController : Controller
     {
-        /// <summary> The logger. </summary>
+        /// <summary>The logger.</summary>
         private readonly ILogger<HomeController> _logger;
 
+        /// <summary>The view model.</summary>
         private static ConnectViewModel connectViewModel = null;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="HomeController" /> class.
         /// </summary>
         ///
-        /// <param name="logger"> The logger. </param>
-        /// <param name="appSettings"> The app settings. </param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="appSettings">The app settings.</param>
         public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
         {
             this._logger = logger;
@@ -34,36 +35,36 @@ namespace hikUI.Controllers
                 connectViewModel = new ConnectViewModel(appSettings.Value.ServiceEndpoints.Cameras);
         }
 
-        /// <summary> Handle the Index view request. </summary>
+        /// <summary>Handle the Index view request.</summary>
         ///
-        /// <returns> An IActionResult. </returns>
+        /// <returns>An IActionResult.</returns>
         public IActionResult Index()
         {
             this._logger.LogInformation("Index");
             return this.View("Index");
         }
 
-        /// <summary> Handle the Connect view request. </summary>
+        /// <summary>Handle the Connect view request.</summary>
         ///
-        /// <returns> An IActionResult. </returns>
+        /// <returns>An IActionResult.</returns>
         public IActionResult Connect()
         {
             this._logger.LogInformation("Connect");
             return this.View("Connect", connectViewModel);
         }
 
-        /// <summary> Handle the Privacy view request. </summary>
+        /// <summary>Handle the Privacy view request.</summary>
         ///
-        /// <returns> An IActionResult. </returns>
+        /// <returns>An IActionResult.</returns>
         public IActionResult Privacy()
         {
             this._logger.LogInformation("Privacy");
             return this.View("Privacy");
         }
 
-        /// <summary> Handle exceptions. </summary>
+        /// <summary>Handle exceptions.</summary>
         ///
-        /// <returns> An IActionResult. </returns>
+        /// <returns>An IActionResult.</returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

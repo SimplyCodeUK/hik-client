@@ -6,17 +6,17 @@
 
 namespace hikUI.Models
 {
-    /// <summary> Exception model. </summary>
+    /// <summary>Exception model.</summary>
     public class ErrorViewModel
     {
-        /// <summary> Gets or sets the requested Id. </summary>
+        /// <summary>Gets or sets the requested Id.</summary>
         ///
-        /// <value> The position x coordinate. </value>
+        /// <value>The position x coordinate.</value>
         public string RequestId { get; set; }
 
-        /// <summary> Gets a flag indicating if the request id can be shown</summary>
+        /// <summary>Gets a flag indicating if the request id can be shown</summary>
         ///
-        /// <returns> A flag indicating if the request id can be shown.</returns>
+        /// <returns>A flag indicating if the request id can be shown.</returns>
         public bool ShowRequestId => !string.IsNullOrEmpty(this.RequestId);
     }
 }

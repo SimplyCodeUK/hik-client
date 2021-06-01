@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/louisnayegon/hik-client"
+    "url": "https://github.com/SimplyCodeUK/hik-client"
   },
   "devDependencies": {
     "bootstrap": "5.0.1",

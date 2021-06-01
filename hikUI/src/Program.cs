@@ -11,7 +11,7 @@ namespace hikUI
     using Microsoft.Extensions.Hosting;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> A program. </summary>
+    /// <summary>A program.</summary>
     [ExcludeFromCodeCoverage]
     public class Program
     {
@@ -22,17 +22,17 @@ namespace hikUI
         {
         }
 
-        /// <summary> Main entry-point for this application. </summary>
+        /// <summary>Main entry-point for this application.</summary>
         ///
-        /// <param name="args"> An array of command-line argument strings. </param>
+        /// <param name="args">An array of command-line argument strings.</param>
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
 
-        /// <summary> Main entry-point for this application. </summary>
+        /// <summary>Main entry-point for this application.</summary>
         ///
-        /// <param name="args"> An array of command-line argument strings. </param>
+        /// <param name="args">An array of command-line argument strings.</param>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((builderContext, config) =>

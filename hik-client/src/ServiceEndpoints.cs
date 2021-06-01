@@ -6,15 +6,17 @@
 
 namespace hik_client
 {
-    /// <summary> Service connection data settings. </summary>
+    /// <summary>Service connection data settings.</summary>
     public class ServiceEndpoints
     {
-        /// <summary> Gets or sets the Cameras connection data.</summary>
+        /// <summary>Gets or sets the Cameras connection data.</summary>
         ///
-        /// <value> The Cameras connection data.</value>
+        /// <value>The Cameras connection data.</value>
         public Connection Cameras { get; set; }
 
-        /// <summary> Constructor. </summary>
+        /// <summary>
+        /// Initialises a new instance of the <see cref="ServiceEndpoints" /> class.
+        /// </summary>
         public ServiceEndpoints()
         {
             this.Cameras = new();

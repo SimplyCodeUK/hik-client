@@ -8,7 +8,7 @@ using hik_client;
 
 namespace hikUI.Models
 {
-    /// <summary> Connect view model. </summary>
+    /// <summary>Connect view model.</summary>
     public class ConnectViewModel
     {
         /// <summary>Cameras connection settings.</summary>

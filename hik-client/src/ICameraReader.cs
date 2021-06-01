@@ -9,12 +9,12 @@ namespace hik_client
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    /// <summary> Camera Reader Interface. </summary>
+    /// <summary>Camera Reader Interface.</summary>
     public interface ICameraReader
     {
-        /// <summary> Get the device information. </summary>
+        /// <summary>Get the device information.</summary>
         ///
-        /// <returns> The device information. </returns>
+        /// <returns>The device information.</returns>
         Task<Dictionary<string, object>> GetDeviceInfo();
     }
 }

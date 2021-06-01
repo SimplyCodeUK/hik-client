@@ -17,7 +17,7 @@ namespace hik_client.Test.HttpMock
     /// </summary>
     public class MockHttpClientHandler : HttpClientHandler
     {
-        /// <summary> Mocked requests. </summary>
+        /// <summary>Mocked requests.</summary>
         private readonly IList<MockRequest> requests;
 
         /// <summary>
@@ -28,14 +28,12 @@ namespace hik_client.Test.HttpMock
             this.requests = new List<MockRequest>();
         }
 
-        /// <summary>
-        /// Add a request to be mocked.
-        /// </summary>
+        /// <summary>Add a request to be mocked.</summary>
         ///
-        /// <param name="method"> The Http method. </param>
-        /// <param name="requestUri"> The Uri used for the HTTP request. </param>
+        /// <param name="method">The Http method.</param>
+        /// <param name="requestUri">The Uri used for the HTTP request.</param>
         ///
-        /// <returns> The request. </returns>
+        /// <returns>The request.</returns>
         public MockRequest AddRequest(HttpMethod method, string requestUri)
         {
             MockRequest request = new(method, requestUri);
@@ -50,12 +48,12 @@ namespace hik_client.Test.HttpMock
         /// not block.
         /// </summary>
         ///
-        /// <param name="request"> The HTTP request message. </param>
-        /// <param name="cancellationToken"> A cancellation token to cancel the operation. </param>
+        /// <param name="request">The HTTP request message.</param>
+        /// <param name="cancellationToken">A cancellation token to cancel the operation.</param>
         ///
-        /// <exception cref="System.Exception"> Thrown when required in testing. </exception>
+        /// <exception cref="System.Exception">Thrown when required in testing.</exception>
         ///
-        /// <returns> The task object representing the asynchronous operation. </returns>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Search for the request
