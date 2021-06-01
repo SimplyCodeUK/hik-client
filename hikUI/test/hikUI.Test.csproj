@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Company>Simply Code Ltd.</Company>
+    <ProjectGuid>{c9810243-28ce-4f2d-ad6c-c807e8e7dbff}</ProjectGuid>
     <Product>hik-client</Product>
     <Authors>Louis Henry Nayegon</Authors>
     <Copyright>Simply Code Ltd.</Copyright>
@@ -15,6 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="OpenCover" Version="4.7.1204" />
     <PackageReference Include="coverlet.msbuild" Version="3.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

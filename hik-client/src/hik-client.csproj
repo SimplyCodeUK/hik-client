@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Company>Simply Code Ltd.</Company>
+    <ProjectGuid>{77338f3a-b49b-4263-972c-72dc864093af}</ProjectGuid>
     <Product>PackIt</Product>
     <Authors>Louis Henry Nayegon</Authors>
     <Copyright>Simply Code Ltd.</Copyright>

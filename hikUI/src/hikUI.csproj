@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Company>Simply Code Ltd.</Company>
+    <ProjectGuid>{3caa0f52-00a3-4323-b762-015107d62dea}</ProjectGuid>
     <Product>hik-client</Product>
     <Authors>Louis Henry Nayegon</Authors>
     <Copyright>Simply Code Ltd.</Copyright>
