@@ -38,7 +38,7 @@ jobs:
           command: dotnet pack hik-client.sln -c << parameters.config >> 
       - run:
           name: "Test solution"
-          command: dotnet test hik-client.sln -c << parameters.config >> /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:ExcludeFromCoverage="**/*.cshtml" --logger:trx --results-directory:test_coverage --collect:"Code Coverage"
+          command: dotnet test hik-client.sln -c << parameters.config >> /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:ExcludeByFile="**/Views/**%2c**/test/**" --logger:trx --results-directory:test_coverage --collect:"Code Coverage"
       - store_test_results:
           path: ./test_coverage
       - store_artifacts:

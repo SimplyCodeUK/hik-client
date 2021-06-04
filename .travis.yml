@@ -52,8 +52,8 @@ script:
   - dotnet build hik-client/test/hik-client.Test.csproj -c $CONFIG /p:DocumentationFile=codedoc.xml
   - dotnet build hikUI/src/hikUI.csproj                 -c $CONFIG /p:DocumentationFile=codedoc.xml
   - dotnet build hikUI/test/hikUI.Test.csproj           -c $CONFIG /p:DocumentationFile=codedoc.xml
-  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:ExcludeFromCoverage="**/*.cshtml" hik-client/test/hik-client.Test.csproj -c $CONFIG --logger:trx
-  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:ExcludeFromCoverage="**/*.cshtml" hikUI/test/hikUI.Test.csproj           -c $CONFIG --logger:trx
+  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:ExcludeByFile="**/Views/**%2c**/test/**" hik-client/test/hik-client.Test.csproj -c $CONFIG --logger:trx
+  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:ExcludeByFile="**/Views/**%2c**/test/**" hikUI/test/hikUI.Test.csproj           -c $CONFIG --logger:trx
 
 # Pipe the coverage data to Code Climate
 after_script:
