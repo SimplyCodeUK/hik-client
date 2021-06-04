@@ -19,6 +19,7 @@ namespace hik_client
             this.Endpoint = "";
             this.Username = "";
             this.Password = "";
+            this.Timeout = 1000; // 1000 milliseconds = 1 second
         }
 
         /// <summary>Gets or sets the Connection endpoint.</summary>
@@ -39,5 +40,11 @@ namespace hik_client
         [Display(Name = "Password", Prompt = "Enter Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        /// <summary>Gets or sets the Connection timeout.</summary>
+        ///
+        /// <value>The Connection timeout in milliseconds.</value>
+        [Display(Name = "Timeout", Prompt = "Enter Timeout in ms")]
+        public int Timeout { get; set; }
     }
 }

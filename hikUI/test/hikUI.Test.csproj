@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\hik-client\test\hik-client.Test.csproj" />
     <ProjectReference Include="..\src\hikUI.csproj" />
   </ItemGroup>
 

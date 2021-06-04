@@ -6,25 +6,40 @@
 
 namespace hik_client.Test
 {
-    using NUnit.Framework;
-    using hik_client;
     using System.Net.Http;
     using System.Collections.Generic;
+    using Microsoft.Extensions.Options;
+    using NUnit.Framework;
+    using hik_client;
 
     /// <summary>(Unit Test Fixture) a controller for handling a connection.</summary>
-    public class TestHttpCameraReader
+    public class TestCameraHandler
     {
         /// <summary>The connection settings.</summary>
-        private Connection connection;
+        private static readonly Connection Connection = new()
+        {
+            Endpoint = "http://localhost:8000/"
+        };
+
+        /// <summary> The service endpoints. </summary>
+        private static readonly ServiceEndpoints Endpoints = new()
+        {
+            Cameras = Connection
+        };
+
+        /// <summary> The application settings. </summary>
+        private static readonly AppSettings AppSettings = new()
+        {
+            ServiceEndpoints = Endpoints
+        };
+
+        /// <summary> The options. </summary>
+        private static readonly IOptions<AppSettings> Options = new OptionsWrapper<AppSettings>(AppSettings);
 
         /// <summary>Setup for all unit tests here.</summary>
         [SetUp]
         public void Setup()
         {
-            this.connection = new()
-            {
-                Endpoint = "http://localhost/"
-            };
         }
 
         /// <summary>(Unit Test Method) Constructor.</summary>
@@ -33,9 +48,9 @@ namespace hik_client.Test
         {
             HttpMock.MockHttpClientHandler httpHandler = new();
             httpHandler
-                .AddRequest(HttpMethod.Get, this.connection.Endpoint + "System/deviceInfo")
+                .AddRequest(HttpMethod.Get, Connection.Endpoint + "System/deviceInfo")
                 .ContentsJson("{'Version': '1', 'About': 'About'}");
-            HttpCameraReader reader = new(this.connection, httpHandler);
+            CameraHandler reader = new(Options, httpHandler);
 
             var result = reader.GetDeviceInfo();
             result.Wait();
@@ -50,9 +65,9 @@ namespace hik_client.Test
         {
             HttpMock.MockHttpClientHandler httpHandler = new();
             httpHandler
-                .AddRequest(HttpMethod.Get, this.connection.Endpoint + "ISAPI/System/deviceInfo")
+                .AddRequest(HttpMethod.Get, Connection.Endpoint + "ISAPI/System/deviceInfo")
                 .ContentsJson("{'Version': '1', 'About': 'ISAPI About'}");
-            HttpCameraReader reader = new(this.connection, httpHandler);
+            CameraHandler reader = new(Options, httpHandler);
 
             var result = reader.GetDeviceInfo();
             result.Wait();
@@ -66,7 +81,7 @@ namespace hik_client.Test
         public void GetDeviceInfoFail()
         {
             HttpMock.MockHttpClientHandler httpHandler = new();
-            HttpCameraReader reader = new(this.connection, httpHandler);
+            CameraHandler reader = new(Options, httpHandler);
 
             var result = reader.GetDeviceInfo();
             result.Wait();

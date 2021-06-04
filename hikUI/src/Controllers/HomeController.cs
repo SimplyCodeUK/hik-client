@@ -6,21 +6,25 @@
 
 namespace hikUI.Controllers
 {
-    using hik_client;
-    using hikUI.Models;
+    using System.Diagnostics;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
-    using System.Diagnostics;
+    using hik_client;
+    using hikUI.Models;
 
     /// <summary>A controller for handling the Home Page.</summary>
     public class HomeController : Controller
     {
+        /// <summary>The view model.</summary>
+        public readonly ConnectViewModel connectViewModel;
+
         /// <summary>The logger.</summary>
         private readonly ILogger<HomeController> _logger;
 
-        /// <summary>The view model.</summary>
-        private static ConnectViewModel connectViewModel = null;
+        /// <summary>The camera reader.</summary>
+        private readonly CameraHandler cameraReader;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="HomeController" /> class.
@@ -28,11 +32,12 @@ namespace hikUI.Controllers
         ///
         /// <param name="logger">The logger.</param>
         /// <param name="appSettings">The app settings.</param>
-        public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
+        /// <param name="handler">The camera handler.</param>
+        public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings, CameraHandler handler)
         {
+            this.connectViewModel = new(appSettings.Value.ServiceEndpoints.Cameras);
             this._logger = logger;
-            if (connectViewModel == null)
-                connectViewModel = new ConnectViewModel(appSettings.Value.ServiceEndpoints.Cameras);
+            this.cameraReader = handler;
         }
 
         /// <summary>Handle the Index view request.</summary>
@@ -50,7 +55,17 @@ namespace hikUI.Controllers
         public IActionResult Connect()
         {
             this._logger.LogInformation("Connect");
-            return this.View("Connect", connectViewModel);
+            return this.View("Connect", this.connectViewModel);
+        }
+
+        /// <summary>Handle the RefreshDeviceInfo request from connect.</summary>
+        ///
+        /// <returns>An IActionResult.</returns>
+        public async Task<IActionResult> RefreshDeviceInfoAsync()
+        {
+            this._logger.LogInformation("RefreshDeviceInfo");
+            this.connectViewModel.DeviceInfo = await this.cameraReader.GetDeviceInfo();
+            return this.View("Connect", this.connectViewModel);
         }
 
         /// <summary>Handle the Privacy view request.</summary>

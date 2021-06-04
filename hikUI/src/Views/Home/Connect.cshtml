@@ -6,17 +6,17 @@
 <form asp-controller="Home" asp-action="Connect">
     <table>
         <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cameras.Endpoint)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cameras.Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cameras.Password)
-            </th>
-        </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cameras.Endpoint)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cameras.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cameras.Password)
+                </th>
+            </tr>
         </thead>
         <tbody>
             <tr>
@@ -29,6 +29,26 @@
                 <td>
                     @Html.EditorFor(model => model.Cameras.Password)
                 </td>
+                <td>
+                    <input type="button" value="Refresh" onclick="location.href='@Url.Action("RefreshDeviceInfo", "Home")'" />
+                </td>
+            </tr>
         </tbody>
     </table>
- </form>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeviceInfoString)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.DeviceInfoString)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

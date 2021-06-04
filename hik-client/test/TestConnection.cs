@@ -29,6 +29,7 @@ namespace hik_client.Test
             Assert.AreEqual(this.connection.Endpoint, "");
             Assert.AreEqual(this.connection.Username, "");
             Assert.AreEqual(this.connection.Password, "");
+            Assert.AreEqual(this.connection.Timeout, 1000);
         }
     }
 }

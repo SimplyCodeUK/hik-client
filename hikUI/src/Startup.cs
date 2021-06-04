@@ -6,13 +6,13 @@
 
 namespace hikUI
 {
-    using hik_client;
+    using System.Diagnostics.CodeAnalysis;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using System.Diagnostics.CodeAnalysis;
+    using hik_client;
 
     /// <summary>A start up.</summary>
     [ExcludeFromCodeCoverage]
@@ -38,6 +38,7 @@ namespace hikUI
         {
             services.AddControllersWithViews();
             services.Configure<AppSettings>(this.Configuration.GetSection("AppSettings"));
+            services.AddScoped<CameraHandler>();
         }
 
         /// <summary>This method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
