@@ -67,7 +67,7 @@ namespace hikUI.Test.Controllers
 
         /// <summary>(Unit Test Method) Connect action.</summary>
         [Test]
-        public void Connect()
+        public void ConnectGet()
         {
             var result = this.controller.Connect();
             Assert.IsInstanceOf<ViewResult>(result);
@@ -79,30 +79,32 @@ namespace hikUI.Test.Controllers
 
         /// <summary>(Unit Test Method) Refresh Device Info Async action.</summary>
         [Test]
-        public async Task RefreshDeviceInfoAsyncNotConnected()
+        public async Task ConnectPostDisconnected()
         {
-            var result = await this.controller.RefreshDeviceInfoAsync();
+            ConnectViewModel model = new() { Cameras = Endpoints.Cameras };
+            var result = await this.controller.Connect(model);
             Assert.IsInstanceOf<ViewResult>(result);
 
             ViewResult viewResult = result as ViewResult;
             Assert.IsInstanceOf<ConnectViewModel>(viewResult.ViewData.Model);
 
-            ConnectViewModel model = viewResult.ViewData.Model as ConnectViewModel;
+            model = viewResult.ViewData.Model as ConnectViewModel;
             Assert.AreEqual("Not connected", model.DeviceInfoString);
         }
 
         /// <summary>(Unit Test Method) Refresh Device Info Async action.</summary>
         [Test]
-        public async Task RefreshDeviceInfoAsyncConnected()
+        public async Task ConnectPostConnected()
         {
             this.SetupConnected();
-            var result = await this.controller.RefreshDeviceInfoAsync();
+            ConnectViewModel model = new() { Cameras = Endpoints.Cameras };
+            var result = await this.controller.Connect(model);
             Assert.IsInstanceOf<ViewResult>(result);
 
             ViewResult viewResult = result as ViewResult;
             Assert.IsInstanceOf<ConnectViewModel>(viewResult.ViewData.Model);
 
-            ConnectViewModel model = viewResult.ViewData.Model as ConnectViewModel;
+            model = viewResult.ViewData.Model as ConnectViewModel;
             Assert.IsInstanceOf<Dictionary<string, object>>(model.DeviceInfo);
             Assert.AreEqual(model.DeviceInfo["Version"], "1");
             Assert.AreEqual(model.DeviceInfo["About"], "About");
@@ -137,7 +139,7 @@ namespace hikUI.Test.Controllers
         private void SetupDisconnected()
         {
             CameraHandler handler = new(Options);
-            this.controller = new(Mock.Of<ILogger<HomeController>>(), Options, handler)
+            this.controller = new(Mock.Of<ILogger<HomeController>>(), handler)
             {
                 ControllerContext = new()
                 {
@@ -155,7 +157,7 @@ namespace hikUI.Test.Controllers
                 .AddRequest(HttpMethod.Get, Endpoints.Cameras.Endpoint + "System/deviceInfo")
                 .ContentsJson("{'Version': '1', 'About': 'About'}");
             CameraHandler handler = new(Options, httpHandler);
-            this.controller = new(Mock.Of<ILogger<HomeController>>(), Options, handler)
+            this.controller = new(Mock.Of<ILogger<HomeController>>(), handler)
             {
                 ControllerContext = new()
                 {

@@ -38,7 +38,8 @@ namespace hikUI
         {
             services.AddControllersWithViews();
             services.Configure<AppSettings>(this.Configuration.GetSection("AppSettings"));
-            services.AddScoped<CameraHandler>();
+            services.AddSingleton<AppSettings>();
+            services.AddSingleton<CameraHandler>();
         }
 
         /// <summary>This method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>

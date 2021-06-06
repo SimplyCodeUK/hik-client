@@ -3,7 +3,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to connect to your camera system.</p>
-<form asp-controller="Home" asp-action="Connect">
+<form method="post" action='@Url.Action("Connect", "Home")'>
     <table>
         <thead>
             <tr>
@@ -30,7 +30,7 @@
                     @Html.EditorFor(model => model.Cameras.Password)
                 </td>
                 <td>
-                    <input type="button" value="Refresh" onclick="location.href='@Url.Action("RefreshDeviceInfo", "Home")'" />
+                    <input type="submit" value="Refresh" id="Submit" />
                 </td>
             </tr>
         </tbody>

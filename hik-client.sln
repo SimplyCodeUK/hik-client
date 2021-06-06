@@ -32,6 +32,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution
 		sonar-project.properties = sonar-project.properties
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9CF263A5-7B1C-4F05-8407-43B90F1665E0}"
+	ProjectSection(SolutionItems) = preProject
+		docs\.gitignore = docs\.gitignore
+		docs\doxygen = docs\doxygen
+		docs\DOXYGENHOME.md = docs\DOXYGENHOME.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".circleci", ".circleci", "{D8B3F614-94CB-47C3-816F-E0457C24E6B9}"
+	ProjectSection(SolutionItems) = preProject
+		.circleci\config.yml = .circleci\config.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +69,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9CF263A5-7B1C-4F05-8407-43B90F1665E0} = {C3705B86-2D6F-4FD5-96E1-6F3D3192B24B}
+		{D8B3F614-94CB-47C3-816F-E0457C24E6B9} = {C3705B86-2D6F-4FD5-96E1-6F3D3192B24B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D440A5D-BFD1-45C6-B87C-AEAA543830FF}

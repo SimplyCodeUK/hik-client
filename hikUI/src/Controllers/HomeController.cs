@@ -10,7 +10,6 @@ namespace hikUI.Controllers
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Options;
     using hik_client;
     using hikUI.Models;
 
@@ -31,18 +30,19 @@ namespace hikUI.Controllers
         /// </summary>
         ///
         /// <param name="logger">The logger.</param>
-        /// <param name="appSettings">The app settings.</param>
         /// <param name="handler">The camera handler.</param>
-        public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings, CameraHandler handler)
+        public HomeController(ILogger<HomeController> logger, CameraHandler handler)
         {
-            this.connectViewModel = new(appSettings.Value.ServiceEndpoints.Cameras);
             this._logger = logger;
             this.cameraReader = handler;
+            this.connectViewModel = new();
+            this.connectViewModel.Cameras = this.cameraReader.Connection;
         }
 
         /// <summary>Handle the Index view request.</summary>
         ///
         /// <returns>An IActionResult.</returns>
+        [HttpGet]
         public IActionResult Index()
         {
             this._logger.LogInformation("Index");
@@ -52,18 +52,21 @@ namespace hikUI.Controllers
         /// <summary>Handle the Connect view request.</summary>
         ///
         /// <returns>An IActionResult.</returns>
+        [HttpGet]
         public IActionResult Connect()
         {
-            this._logger.LogInformation("Connect");
+            this._logger.LogInformation("Connect Get");
             return this.View("Connect", this.connectViewModel);
         }
 
-        /// <summary>Handle the RefreshDeviceInfo request from connect.</summary>
+        /// <summary>Handle the post request from connect.</summary>
         ///
         /// <returns>An IActionResult.</returns>
-        public async Task<IActionResult> RefreshDeviceInfoAsync()
+        [HttpPost]
+        public async Task<IActionResult> Connect(ConnectViewModel connectViewModel)
         {
-            this._logger.LogInformation("RefreshDeviceInfo");
+            this._logger.LogInformation("Connect Post");
+            this.cameraReader.SetConnection(connectViewModel.Cameras);
             this.connectViewModel.DeviceInfo = await this.cameraReader.GetDeviceInfo();
             return this.View("Connect", this.connectViewModel);
         }

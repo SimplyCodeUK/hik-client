@@ -24,11 +24,9 @@ namespace hikUI.Models
         public Dictionary<string, object> DeviceInfo;
 
         /// <summary>Model for connection view.</summary>
-        ///
-        /// <param name="cameras">Camera connection data.</param>
-        public ConnectViewModel(Connection cameras)
+        public ConnectViewModel()
         {
-            this.Cameras = cameras;
+            this.Cameras = new();
             this.DeviceInfo = null;
         }
     }

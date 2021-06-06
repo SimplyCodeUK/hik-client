@@ -9,6 +9,8 @@ namespace hik_client
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
     using System.Threading.Tasks;
     using Microsoft.Extensions.Options;
     using Newtonsoft.Json;
@@ -17,7 +19,7 @@ namespace hik_client
     public class CameraHandler
     {
         /// <summary>Connection parameters.</summary>
-        private readonly Connection connection;
+        public Connection Connection { get; private set; }
 
         /// <summary>Http connection client.</summary>
         private readonly HttpClient httpClient;
@@ -40,9 +42,26 @@ namespace hik_client
         /// <param name="handler">Http handler.</param>
         public CameraHandler(IOptions<AppSettings> appSettings, HttpClientHandler handler)
         {
-            this.connection = appSettings.Value.ServiceEndpoints.Cameras;
             this.httpClient = new(handler);
-            this.TimeOut = new(0, 0, 0, 0, this.connection.Timeout);
+
+            this.SetConnection(appSettings.Value.ServiceEndpoints.Cameras);
+            var authToken = Encoding.ASCII.GetBytes($"{this.Connection.Username}:{this.Connection.Password}");
+            this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Basic",
+                Convert.ToBase64String(authToken));
+        }
+
+        /// <summary>Set the connection settings.</summary>
+        ///
+        /// <param name="connection">The connection settings</param>
+        public void SetConnection(Connection connection)
+        {
+            this.Connection = connection;
+            this.TimeOut = new(0, 0, 0, 0, this.Connection.Timeout);
+            var authToken = Encoding.ASCII.GetBytes($"{this.Connection.Username}:{this.Connection.Password}");
+            this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Basic",
+                Convert.ToBase64String(authToken));
         }
 
         /// <summary> Gets or sets the time out for http calls. </summary>
@@ -86,7 +105,7 @@ namespace hik_client
         {
             try
             {
-                var response = await this.httpClient.GetAsync(this.connection.Endpoint + resource);
+                var response = await this.httpClient.GetAsync(this.Connection.Endpoint + resource);
 
                 // Throw an exception if not successful
                 response.EnsureSuccessStatusCode();
