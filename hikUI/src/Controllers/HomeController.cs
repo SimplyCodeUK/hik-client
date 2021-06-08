@@ -22,8 +22,8 @@ namespace hikUI.Controllers
         /// <summary>The logger.</summary>
         private readonly ILogger<HomeController> _logger;
 
-        /// <summary>The camera reader.</summary>
-        private readonly CameraHandler cameraReader;
+        /// <summary>The camera handler.</summary>
+        private readonly CameraHandler cameraHandler;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="HomeController" /> class.
@@ -34,9 +34,9 @@ namespace hikUI.Controllers
         public HomeController(ILogger<HomeController> logger, CameraHandler handler)
         {
             this._logger = logger;
-            this.cameraReader = handler;
+            this.cameraHandler = handler;
             this.connectViewModel = new();
-            this.connectViewModel.Cameras = this.cameraReader.Connection;
+            this.connectViewModel.Cameras = this.cameraHandler.Connection;
         }
 
         /// <summary>Handle the Index view request.</summary>
@@ -66,8 +66,9 @@ namespace hikUI.Controllers
         public async Task<IActionResult> Connect(ConnectViewModel connectViewModel)
         {
             this._logger.LogInformation("Connect Post");
-            this.cameraReader.SetConnection(connectViewModel.Cameras);
-            this.connectViewModel.DeviceInfo = await this.cameraReader.GetDeviceInfo();
+            this.cameraHandler.SetConnection(connectViewModel.Cameras);
+            this.connectViewModel.Cameras = connectViewModel.Cameras;
+            this.connectViewModel.DeviceInfo = await this.cameraHandler.GetDeviceInfo();
             return this.View("Connect", this.connectViewModel);
         }
 

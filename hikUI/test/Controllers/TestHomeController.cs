@@ -28,7 +28,7 @@ namespace hikUI.Test.Controllers
 
         private static readonly ServiceEndpoints Endpoints = new()
         {
-            Cameras = new Connection()
+            Cameras = new()
             {
                 Endpoint = "http://localhost:8000/",
                 Username = "username",

@@ -45,6 +45,7 @@ namespace hik_client
             this.httpClient = new(handler);
 
             this.SetConnection(appSettings.Value.ServiceEndpoints.Cameras);
+            this.TimeOut = new(0, 0, 0, 0, this.Connection.Timeout);
             var authToken = Encoding.ASCII.GetBytes($"{this.Connection.Username}:{this.Connection.Password}");
             this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Basic",
@@ -57,7 +58,6 @@ namespace hik_client
         public void SetConnection(Connection connection)
         {
             this.Connection = connection;
-            this.TimeOut = new(0, 0, 0, 0, this.Connection.Timeout);
             var authToken = Encoding.ASCII.GetBytes($"{this.Connection.Username}:{this.Connection.Password}");
             this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Basic",
@@ -113,10 +113,12 @@ namespace hik_client
                 // Get the content
                 var content = await response.Content.ReadAsStringAsync();
 
+                this.httpClient.CancelPendingRequests();
                 return content;
             }
             catch (Exception)
             {
+                this.httpClient.CancelPendingRequests();
                 return null;
             }
         }
